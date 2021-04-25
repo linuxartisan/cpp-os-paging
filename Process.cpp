@@ -17,13 +17,13 @@ Process::Process(uint32_t noOfPages, uint32_t noOfFrames)
     // Or, x = log2(noOfFrames)
     size_t noOfBits = (size_t) (log10(noOfFrames) / log10(2));
 
-    for (int i = 0; i < noOfPages; i++)
+    for (uint32_t i = 0; i < noOfPages; i++)
     {
         PageTableEntry pte(noOfBits);
         this->pageTable.push_back(pte);
     }
 
-    for (int i = 0; i < noOfPages; i++)
+    for (uint32_t i = 0; i < noOfPages; i++)
     {
         Counter c;
         this->counters.push_back(c);
@@ -33,7 +33,7 @@ Process::Process(uint32_t noOfPages, uint32_t noOfFrames)
 void Process::printPageTable()
 {
     cout << "page#\tR\tM\tP\tframe#\taging\n";
-    for (int i = 0; i < this->noOfPages; i++)
+    for (uint32_t i = 0; i < this->noOfPages; i++)
     {
         cout << i << ":\t";
         if (this->pageTable[i].isPresent()) {
