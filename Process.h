@@ -6,6 +6,11 @@
 #include "Counter.h"
 
 class PagingSimulator; // forward declaration
+
+/**
+ * Denotes a process.
+ * A process has a page table and a set of counters.
+ */
 class Process
 {
 private:

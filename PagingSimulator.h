@@ -6,6 +6,10 @@
 #include <vector>
 #include "Process.h"
 
+
+/**
+ * The simulator that handles the aging algorithm logic.
+ */
 class PagingSimulator
 {
 private:

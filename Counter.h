@@ -4,6 +4,9 @@
 #include <cstdint>
 #include <string>
 
+/**
+ * The counter is represented by an unsigned 8-bit integer.
+ */
 class Counter
 {
 private:

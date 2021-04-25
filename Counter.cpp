@@ -8,6 +8,11 @@ Counter::Counter()
     this->agingCounter = 0;
 }
 
+/**
+ * Modifies the counter.
+ * Shifts all the bits to right by 1 place. Inserts a 0 or 1
+ * in the MSB place.
+ */
 void Counter::insertBitToLeft(bool bit)
 {
     uint8_t msb = 128; // binary 10000000

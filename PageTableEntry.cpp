@@ -22,19 +22,19 @@ uint32_t PageTableEntry::getR()
     uint32_t copyOfEntry = this->entry;
     copyOfEntry = copyOfEntry >> 31; // right shift by 31 bits
     copyOfEntry = copyOfEntry & 1;
-    // entry:  1010
-    // >>
-    // entry : xxx1
+    // entry:  R010...0
+    // >> right shift 31 bits
+    // entry : 000R
     //       & 0001
     // ------------
-    //         0001
+    //         000R
     return copyOfEntry;
 }
 
 void PageTableEntry::setR(bool flag)
 {
     uint32_t msb1 = 2147483648; // binary 10000000000000000000000000000000
-    // msb - 1 = 01111111111111111111111111111111
+                                // msb - 1 = 01111111111111111111111111111111
     if (flag) {
         this->entry = this->entry | msb1;
     } else {
@@ -85,11 +85,6 @@ uint32_t PageTableEntry::getPageFrameNumber()
 
     for (int i = this->noOfPageFrameBits - 2; i >= 0; i--)
     {
-        // 0010
-        // 0
-        // 00
-        // 001
-        // 0010
         number = number << 1;
         number = number | copyOfEntry[i];
     }
